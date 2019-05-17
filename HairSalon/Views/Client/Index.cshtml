@@ -1,0 +1,18 @@
+<h1>Clients</h1>
+<p><a href='/clients/new'>Add a New Client<a/></p>
+<p><a href='/'>Back to Home<a/></p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  @foreach(var client in Model)
+  {
+  <tr>
+    <td><a href="/clients/@client.Id">@client.Name</a></td>
+    <td><a href="/clients/@client.Id/edit">Edit</a></td>
+    <td><a href="/clients/@client.Id/delete">Delete</a></td>
+  </tr>
+  }
+</table>

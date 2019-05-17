@@ -1,0 +1,7 @@
+<h1>Edit Stylist</h1>
+<p><a href='/'>Back to Home<a/></p>
+<form action="/stylists/@Model.Id/edit" method="post">
+  <label for="editStylist">Edit stylist name:</label>
+  <input id="editStylist" name="editStylist" type="text" value="@Model.Name">
+  <button type="submit">Submit</button>
+</form>

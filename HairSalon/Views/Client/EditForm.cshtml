@@ -1,0 +1,7 @@
+<h1>Edit Client</h1>
+<p><a href='/clients'>Back to List<a/></p>
+<form action="/clients/@Model.Id/edit" method="post">
+  <label for="editClient">Edit client name:</label>
+  <input id="editClient" name="editClient" type="text" value="@Model.Name">
+  <button type="submit">Submit</button>
+</form>
