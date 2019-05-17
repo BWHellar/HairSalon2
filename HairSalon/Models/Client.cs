@@ -5,6 +5,7 @@ namespace HairSalon.Models
 {
   public class Client
   {
+  
     private string _name;
     public string Name { get { return _name;} }
 
@@ -20,7 +21,7 @@ namespace HairSalon.Models
       _id = id;
       _stylistId = stylistId;
     }
-    
+
     public override bool Equals(System.Object otherClient)
     {
       if(!(otherClient is Client))

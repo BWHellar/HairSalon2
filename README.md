@@ -14,63 +14,20 @@
 | :-------------     | :------------- | :------------- | :----------- |
 | **Allows for input of new Stylists into database** | User input: "Bob" | Output: "Bob" | Reasoning: The user inputs Bob into the input and it saves the name into the database. |
 | **Allows for owner to see stylists** | User Input: "Bob" | Output: "Bob" | Reasoning: Once the owner logs a new stylist the stylists name will show up on the screen as well. |
-| **Allows for Clients to be added to database** | User Input: "Jenny" | Output: "Jenny" | Reasoning: Once the Stylist is clicked on they are able to add clients to their own client database. |
+| **Allows for Clients to be added to database** | User Input: "Jenny" | Output: "Jenny" | Reasoning: Once a client is created they are then allowed to select a Stylist to attach to. |
 | **Allows for Stylist to see current clients** | User Input: "Jenny" | Output: "Jenny" | Reasoning: The program will pull the Client database for that particular Stylist |
+| **Allows for Specialties to be added and attached to Stylists** | User Input: "Trimming" | Output: "Jenny" | Reasoning: When Specialties are added it will allow you to attched them to a stylist. |
 
 ###### Here we allow for the Owner to save new Stylists to the database.  With this Save function we are able to open the Sql connection and insert a new person into the database under Stylists.  The functionality for saving Clients is more or less the same idea.
 ```
-public void Save()
-{
-  MySqlConnection conn = DB.Connection();
-  conn.Open();
 
-  MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-  cmd.CommandText = @"INSERT INTO stylist (name) VALUES (@thisName);";
-  MySqlParameter name = new MySqlParameter("@thisName", this.Name);
-  cmd.Parameters.Add(name);
-
-  cmd.ExecuteNonQuery();
-  this._id = (int) cmd.LastInsertedId;
-
-  conn.Close();
-  if(conn!=null)
-  {
-    conn.Dispose();
-  }
-}
 ==============
  ```
 
  ###### This will allow us to gather all the Stylists from our database in order to show them to the Owner.  It pulls from the database we have and displays the ones that are currently logged in to it.  The functionality for Clients works more or less the same in terms of idea.
 
  ```
- public static List<Stylist> GetStylist()
- {
-   List<Stylist> showAllStylist = new List <Stylist>{};
-   MySqlConnection conn = DB.Connection();
-   conn.Open();
-
-   MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-   cmd.CommandText = @"SELECT * FROM stylist;";
-
-
-   MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-   while(rdr.Read())
-   {
-     int id = rdr.GetInt32(0);
-     string name = rdr.GetString(1);
-
-     Stylist stylist = new Stylist(name, id);
-     showAllStylist.Add(stylist);
-   }
-
-   conn.Close();
-   if(conn!=null)
-   {
-     conn.Dispose();
-   }
-   return showAllStylist;
- }
+ 
 =======
 ```
 ## Setup/Installation Requirements
