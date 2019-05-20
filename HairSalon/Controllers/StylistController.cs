@@ -13,7 +13,7 @@ namespace HairSalon.Controllers
       List<Stylist> allStylists = Stylist.GetAll();
       return View(allStylists);
     }
-
+    // I dont think this is needed.
     [HttpGet("/stylists/new")]
     public ActionResult NewStylist()
     {
@@ -36,7 +36,7 @@ namespace HairSalon.Controllers
       return View(stylist);
     }
 
-    [HttpPost("/stylists/{id}")]
+    [HttpPost("/stylists/{id}/edit")]
     public ActionResult Edit(int id)
     {
       Stylist stylist = Stylist.Find(id);

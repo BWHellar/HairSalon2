@@ -7,14 +7,14 @@ namespace HairSalon.Controllers
 {
   public class ClientController : Controller
   {
-    
+
     [HttpGet("/clients")]
     public ActionResult Index()
     {
       List<Client> allClients = Client.GetAll();
       return View(allClients);
     }
-
+    // I dont think this is needed.
     [HttpGet("/clients/new")]
     public ActionResult NewClient()
     {

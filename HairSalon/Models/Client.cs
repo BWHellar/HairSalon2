@@ -5,7 +5,7 @@ namespace HairSalon.Models
 {
   public class Client
   {
-  
+
     private string _name;
     public string Name { get { return _name;} }
 
@@ -155,7 +155,7 @@ namespace HairSalon.Models
      conn.Open();
      var cmd = conn.CreateCommand() as MySqlCommand;
      cmd.CommandText = @"DELETE FROM client WHERE id = @thisId;";
-     cmd.Parameters.Add(new MySqlParameter("@thisID", _id));
+     cmd.Parameters.Add(new MySqlParameter("@searchId", _id));
      cmd.ExecuteNonQuery();
      conn.Close();
      if(conn != null){conn.Dispose();}
